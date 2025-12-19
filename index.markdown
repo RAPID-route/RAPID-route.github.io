@@ -5,8 +5,18 @@
 layout: page    
 ---
 
-[Dabry](https://github.com/dabry-route/dabry) is a Python-based module to solve optimal trajectory planning problems
-for vehicles in unsteady flows.
+### **GUIDE:**  **G**pu-accelerated **U**nderwater **I**ntelligent **D**ifferential **E**volution for collision-free 3D path planning of autonomous gliders in dynamic ocean currents
+
+**GUIDE** is a state-of-the-art path planning framework designed for **Autonomous Underwater Gliders (AUGs)** operating in complex, time-varying ocean environments.  Unlike traditional planners, GUIDE integrates **domain knowledge (Ocean Currents)** directly into the evolutionary search process and leverages massive **GPU parallelism** to solve high-dimensional 3D trajectory optimization problems in seconds. 
+
+### Key Features 
+
+*   **🚀 Extreme Performance via GPU:**  Built on **CUDA**, GUIDE implements a "Whole-Trajectory Kernel" design that eliminates CPU-GPU communication bottlenecks. It accelerates RK4 integration and B-Spline decoding by orders of magnitude (e.g., reducing runtime from ~1800s to <150s). 
+*   **🌊 Physics-Informed Evolution (LSHADE-AHF):**  Introduces a novel **Adaptive Hybrid Flow** mutation strategy. The algorithm intelligently switches between "Current-Guided Search" (utilizing flow vectors) and "Stochastic Exploration" based on real-time success history, preventing stagnation in complex vortexes. 
+*   **🛡️ Strict 3D Obstacle Avoidance:**  Utilizes **Signed Distance Fields (SDF)** and **GPU Sphere Tracing** to guarantee collision-free paths against high-resolution **GEBCO** **seabed terrain data,** ensuring safety even in deep-sea canyons. 
+*   **⏳ Time-Varying Dynamics:** Full support for **4D ocean data (CMEMS).** The planner accounts for the temporal evolution of ocean currents during the glider's long-endurance missions, optimizing energy consumption and travel time simultaneously.
+
+### Visual Results
 
 [<img src="assets/gifs/cropped/3vor.gif" style="width: 32%;">](examples#3vor)
 [<img src="assets/gifs/cropped/linear.gif" style="width: 32%;">](examples#linear)

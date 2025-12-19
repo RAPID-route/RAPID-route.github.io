@@ -33,3 +33,15 @@ layout: default
 [<img src="assets/gifs/cropped/big_rankine.gif" style="width: 32%;">](examples#big_rankine)
 [<img src="assets/gifs/cropped/pointsym-techy2011.gif" style="width: 32%;">](examples#pointsym-techy2011)
 [<img src="assets/gifs/cropped/lva.gif" style="width: 32%;">](examples#lva)
+
+### BibTeX
+
+```Latex
+@misc{zezhongli2025GUIDE,
+      title={GUIDE: GPU-accelerated Underwater Intelligent Differential Evolution for 
+      Collision-Free 3D Path Planning of Autonomous Gliders in Dynamic Ocean Currents}, 
+      author={Zezhong Li and Zhong-ke Gao},
+      year={2026},
+      primaryClass={cs.RO},
+}
+```

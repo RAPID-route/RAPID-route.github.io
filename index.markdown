@@ -2,7 +2,7 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: page    
+layout: home    
 ---
 
 ### **GUIDE:**  **G**pu-accelerated **U**nderwater **I**ntelligent **D**ifferential **E**volution for collision-free 3D path planning of autonomous gliders in dynamic ocean currents

@@ -12,7 +12,7 @@ layout: default
 ### Key Features 
 
 *   **🚀 Extreme Performance via GPU:**  Built on **CUDA**, GUIDE implements a "Whole-Trajectory Kernel" design that eliminates CPU-GPU communication bottlenecks. It accelerates RK4 integration and B-Spline decoding by orders of magnitude (e.g., reducing runtime from ~1800s to <150s). 
-*   **🌊 Physics-Informed Evolution (LSHADE-AHF):**  Introduces a novel **Adaptive Hybrid Flow** mutation strategy. The algorithm intelligently switches between "Current-Guided Search" (utilizing flow vectors) and "Stochastic Exploration" based on real-time success history, preventing stagnation in complex vortexes. 
+*   **🌊 Physics-Informed Evolution:**  Introduces a novel **Adaptive Hybrid Flow** mutation strategy. The algorithm intelligently switches between "Current-Guided Search" (utilizing flow vectors) and "Stochastic Exploration" based on real-time success history, preventing stagnation in complex vortexes. 
 *   **🛡️ Strict 3D Obstacle Avoidance:**  Utilizes **Signed Distance Fields (SDF)** and **GPU Sphere Tracing** to guarantee collision-free paths against high-resolution **GEBCO** **seabed terrain data,** ensuring safety even in deep-sea canyons. 
 *   **⏳ Time-Varying Dynamics:** Full support for **4D ocean data (CMEMS).** The planner accounts for the temporal evolution of ocean currents during the glider's long-endurance missions, optimizing energy consumption and travel time simultaneously.
 

@@ -29,6 +29,10 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 theme: minima
 plugins:
   - jekyll-feed
+header_pages:
+  - 0_examples.markdown
+  - 1_real_data.markdown
+  - 2_about.markdown
 
 minima:
   social_links:

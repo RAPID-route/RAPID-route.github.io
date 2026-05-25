@@ -16,7 +16,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
 *   **🛡️ Strict Continuous 3D Obstacle Avoidance:** Utilizes a Euclidean Signed Distance Field (ESDF) combined with adaptive **Sphere Tracing** (Ray Marching). This completely eliminates the "tunneling effect" of traditional discrete sampling, ensuring absolute safety against high-resolution **GEBCO seabed topography**. 
 *   **🚀 GPU-Accelerated 4D Dynamic Verification:** Employs parallel 4th-order Runge-Kutta (RK4) integration on the GPU to strictly evaluate time-varying kinematics using **4D CMEMS ocean data**. The population-level parallel architecture reduces evaluation time by orders of magnitude (up to 18.6× speedup), making time-optimal planning computationally tractable.
 
-### Visual Results
+### 2D Visual Results
 
 <div style="display: flex; flex-direction: column; gap: 40px; align-items: center; margin-bottom: 50px; margin-top: 20px;">
 
@@ -73,6 +73,36 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     </div>
     <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
       <source src="assets/video/case_5.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+</div>
+
+### 3D Visual Results
+
+<div style="display: flex; flex-direction: column; gap: 40px; align-items: center; margin-bottom: 50px; margin-top: 20px;">
+
+  <!-- Case 2 -->
+  <div style="position: relative; width: 100%; max-width: 850px;">
+    <!-- 标签 Badge -->
+    <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
+      Case 2
+    </div>
+    <!-- 视频播放器 -->
+    <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
+      <source src="assets/video/case_2_3D.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Case 3 -->
+  <div style="position: relative; width: 100%; max-width: 850px;">
+    <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
+      Case 3
+    </div>
+    <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
+      <source src="assets/video/case_3_3D.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>

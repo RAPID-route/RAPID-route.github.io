@@ -83,6 +83,19 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
 
 <div style="display: flex; flex-direction: column; gap: 40px; align-items: center; margin-bottom: 50px; margin-top: 20px;">
 
+  <!-- Case 1 -->
+  <div style="position: relative; width: 100%; max-width: 850px;">
+    <!-- 标签 Badge -->
+    <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
+      Case 1
+    </div>
+    <!-- 视频播放器 -->
+    <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
+      <source src="assets/video/case_1_3D.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
   <!-- Case 2 -->
   <div style="position: relative; width: 100%; max-width: 850px;">
     <!-- 标签 Badge -->
@@ -103,6 +116,28 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     </div>
     <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
       <source src="assets/video/case_3_3D.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+<!-- Case 4 -->
+  <div style="position: relative; width: 100%; max-width: 850px;">
+    <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
+      Case 4
+    </div>
+    <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
+      <source src="assets/video/case_4_3D.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+<!-- Case 5 -->
+  <div style="position: relative; width: 100%; max-width: 850px;">
+    <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
+      Case 5
+    </div>
+    <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
+      <source src="assets/video/case_5_3D.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>

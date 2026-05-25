@@ -28,7 +28,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     </div>
     <!-- 视频播放器 -->
     <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
-      <source src="assets/videos/case_1.mp4" type="video/mp4">
+      <source src="assets/video/case_1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -39,7 +39,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
       Case 2
     </div>
     <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
-      <source src="assets/videos/case_2.mp4" type="video/mp4">
+      <source src="assets/video/case_2.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -50,7 +50,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
       Case 3
     </div>
     <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
-      <source src="assets/videos/case_3.mp4" type="video/mp4">
+      <source src="assets/video/case_3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -61,7 +61,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
       Case 4
     </div>
     <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
-      <source src="assets/videos/case_4.mp4" type="video/mp4">
+      <source src="assets/video/case_4.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>

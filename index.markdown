@@ -5,16 +5,16 @@
 layout: default  
 ---
 
-## **GUIDE:** **G**pu-accelerated **U**nderwater **I**ntelligent **D**ifferential **E**volution for collision-free 3D path planning of autonomous gliders in dynamic ocean currents
+## **MadDE-NDA:** Collision-Free Time-Optimal Planning of Underwater Gliders in Time-Varying Currents via Adaptive **N**iching **D**ual-**A**rchive Differential Evolution
 
-**GUIDE** is a state-of-the-art path planning framework designed for **Autonomous Underwater Gliders (AUGs)** operating in complex, time-varying ocean environments.  Unlike traditional planners, GUIDE integrates **domain knowledge (Ocean Currents)** directly into the evolutionary search process and leverages massive **GPU parallelism** to solve high-dimensional 3D trajectory optimization problems in seconds. 
+This project presents a state-of-the-art GPU-accelerated 4D path planning framework designed for **Autonomous Underwater Gliders (AUGs)** operating in complex, time-varying ocean environments. To overcome the curse of dimensionality and the spatiotemporal causal chain in long-range missions, we propose a fixed-dimensional **B-spline trajectory encoding** combined with a novel evolutionary optimizer, **MadDE-NDA** (Niching Dual-Archive Differential Evolution). By leveraging massive **GPU parallelism**, the framework rigorously evaluates dynamic feasibility and continuous-domain collision safety in seconds.
 
 ### Key Features 
 
-*   **🚀 Extreme Performance via GPU:**  Built on **CUDA**, GUIDE implements a "Whole-Trajectory Kernel" design that eliminates CPU-GPU communication bottlenecks. It accelerates RK4 integration and B-Spline decoding by orders of magnitude (e.g., reducing runtime from ~1800s to <150s). 
-*   **🌊 Physics-Informed Evolution:**  Introduces a novel **Adaptive Hybrid Flow** mutation strategy. The algorithm intelligently switches between "Current-Guided Search" (utilizing flow vectors) and "Stochastic Exploration" based on real-time success history, preventing stagnation in complex vortexes. 
-*   **🛡️ Strict 3D Obstacle Avoidance:**  Utilizes **Signed Distance Fields (SDF)** and **GPU Sphere Tracing** to guarantee collision-free paths against high-resolution **GEBCO** **seabed terrain data,** ensuring safety even in deep-sea canyons. 
-*   **⏳ Time-Varying Dynamics:** Full support for **4D ocean data (CMEMS).** The planner accounts for the temporal evolution of ocean currents during the glider's long-endurance missions, optimizing energy consumption and travel time simultaneously.
+*   **📉 Fixed-Dimensional B-Spline Encoding:** Transforms the traditional variable-length, profile-wise routing problem into a compact, fixed-dimensional search space using B-spline control points in a local coordinate system, significantly improving optimization efficiency for long-endurance missions.
+*   **🧬 Adaptive Niching Dual-Archive Evolution (MadDE-NDA):** Introduces dual cooperative archives for quality retention and diversity preservation, coupled with a stagnation-triggered niching scheme. This prevents premature convergence and robustly explores highly multimodal route corridors induced by complex terrain and currents.
+*   **🛡️ Strict Continuous 3D Obstacle Avoidance:** Utilizes a Euclidean Signed Distance Field (ESDF) combined with adaptive **Sphere Tracing** (Ray Marching). This completely eliminates the "tunneling effect" of traditional discrete sampling, ensuring absolute safety against high-resolution **GEBCO seabed topography**. 
+*   **🚀 GPU-Accelerated 4D Dynamic Verification:** Employs parallel 4th-order Runge-Kutta (RK4) integration on the GPU to strictly evaluate time-varying kinematics using **4D CMEMS ocean data**. The population-level parallel architecture reduces evaluation time by orders of magnitude (up to 18.6× speedup), making time-optimal planning computationally tractable.
 
 ### Visual Results
 
@@ -36,12 +36,13 @@ layout: default
 
 ### BibTeX
 
+If you find our work helpful, please consider citing it:
+
 ```Latex
-@misc{zezhongli2025GUIDE,
-      title={GUIDE: GPU-accelerated Underwater Intelligent Differential Evolution for 
-      Collision-Free 3D Path Planning of Autonomous Gliders in Dynamic Ocean Currents}, 
-      author={Zezhong Li and Zhong-ke Gao},
-      year={2026},
-      primaryClass={cs.RO},
+@article{li2024collision,
+      title={Collision-Free Time-Optimal Planning of Underwater Gliders in Time-Varying Currents via Adaptive Niching Dual-Archive Differential Evolution}, 
+      author={Li, Zezhong and Juan, Rongshun and Li, Yang and Liu, Shoufu and Wang, Tianshu and Shi, Shuaikun and Du, Leihao and Feng, Wanjun and Gao, Zhongke},
+      journal={Under Review at Ocean Engineering},
+      year={2026}
 }
 ```

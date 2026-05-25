@@ -18,21 +18,28 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
 
 ### Visual Results
 
-[<img src="assets/gifs/cropped/3vor.gif" style="width: 32%;">](examples#3vor)
-[<img src="assets/gifs/cropped/linear.gif" style="width: 32%;">](examples#linear)
-[<img src="assets/gifs/cropped/4vor.gif" style="width: 32%;">](examples#4vor)
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px 0; margin-bottom: 30px;">
 
-[<img src="assets/gifs/cropped/movor.gif" style="width: 32%;">](examples#movor)
-[<img src="assets/gifs/cropped/movors.gif" style="width: 32%;">](examples#movors)
-[<img src="assets/gifs/cropped/sanjuan-dublin-ortho-tv.gif" style="width: 32%;">](examples#sanjuan-dublin-ortho-tv)
+  <!-- 第一行 -->
+  <a href="examples#3vor" style="width: 32%; display: block;">
+    <video src="assets/videos/case 1.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></video>
+  </a>
 
-[<img src="assets/gifs/cropped/chertovskih2020.gif" style="width: 32%;">](examples#chertovskih2020)
-[<img src="assets/gifs/cropped/band.gif" style="width: 32%;">](examples#band)
-[<img src="assets/gifs/cropped/trap.gif" style="width: 32%;">](examples#trap)
+  <!-- 第二行 -->
+  <a href="examples#movor" style="width: 32%; display: block;">
+    <video src="assets/videos/case 2.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></video>
+  </a>
 
-[<img src="assets/gifs/cropped/big_rankine.gif" style="width: 32%;">](examples#big_rankine)
-[<img src="assets/gifs/cropped/pointsym-techy2011.gif" style="width: 32%;">](examples#pointsym-techy2011)
-[<img src="assets/gifs/cropped/lva.gif" style="width: 32%;">](examples#lva)
+  <!-- 第三行 -->
+  <a href="examples#chertovskih2020" style="width: 32%; display: block;">
+    <video src="assets/videos/case 3.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></video>
+  </a>
+
+  <!-- 第四行 -->
+  <a href="examples#big_rankine" style="width: 32%; display: block;">
+    <video src="assets/videos/case 4.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></video>
+  </a>
+</div>
 
 ### BibTeX
 

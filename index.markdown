@@ -5,6 +5,15 @@
 layout: default  
 ---
 
+<style>
+  /* 突破 minima 主题默认的 800px 宽度限制，修改为你想要的宽度 */
+  .wrapper {
+    max-width: 1200px !important; 
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+</style>
+
 ## **MadDE-NDA:** Collision-Free Time-Optimal Planning of Underwater Gliders in Time-Varying Currents via Adaptive **N**iching **D**ual-**A**rchive Differential Evolution
 
 This project presents a state-of-the-art GPU-accelerated 4D path planning framework designed for **Autonomous Underwater Gliders (AUGs)** operating in complex, time-varying ocean environments. To overcome the curse of dimensionality and the spatiotemporal causal chain in long-range missions, we propose a fixed-dimensional **B-spline trajectory encoding** combined with a novel evolutionary optimizer, **MadDE-NDA** (Niching Dual-Archive Differential Evolution). By leveraging massive **GPU parallelism**, the framework rigorously evaluates dynamic feasibility and continuous-domain collision safety in seconds.

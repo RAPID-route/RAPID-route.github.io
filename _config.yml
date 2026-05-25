@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: GUIDE
+title: MadDE-NDA
 email: lizz1998@tju.edu.cn
 description: >- # this means to ignore newlines until "baseurl:"
   Trajectory optimization in flow fields, visualized.
@@ -34,7 +34,7 @@ header_pages:
 
 minima:
   social_links:
-    - { platform: github, user_url: "https://github.com/dabry-route/dabry" }
+    - { platform: github, user_url: "https://github.com/RAPID-route/RAPID-route.github.io" }
 
 # Exclude from processing.
 # The following items will not be processed, by default.

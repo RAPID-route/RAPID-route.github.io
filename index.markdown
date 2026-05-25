@@ -24,7 +24,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
   <div style="width: 32%; margin-bottom: 15px;">
     <a href="examples#3vor" style="display: block;">
       <video autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block;">
-        <source src="assets/videos/case_1.mp4" type="video/mp4">
+        <source src="assets/video/case_1.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </a>
@@ -34,7 +34,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
   <div style="width: 32%; margin-bottom: 15px;">
     <a href="examples#movor" style="display: block;">
       <video autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block;">
-        <source src="assets/videos/case_2.mp4" type="video/mp4">
+        <source src="assets/video/case_2.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </a>
@@ -44,7 +44,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
   <div style="width: 32%; margin-bottom: 15px;">
     <a href="examples#chertovskih2020" style="display: block;">
       <video autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block;">
-        <source src="assets/videos/case_3.mp4" type="video/mp4">
+        <source src="assets/video/case_3.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </a>
@@ -54,7 +54,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
   <div style="width: 32%; margin-bottom: 15px;">
     <a href="examples#big_rankine" style="display: block;">
       <video autoplay loop muted playsinline style="width: 100%; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: block;">
-        <source src="assets/videos/case_4.mp4" type="video/mp4">
+        <source src="assets/video/case_4.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </a>

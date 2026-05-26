@@ -33,7 +33,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 1: 2D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 1 (2D Flow)
+        Case 1 (2D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_1.mp4" type="video/mp4">
@@ -42,7 +42,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 1: 3D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #28a745; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 1 (3D Terrain)
+        Case 1 (3D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_1_3D.mp4" type="video/mp4">
@@ -55,7 +55,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 2: 2D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 2 (2D Flow)
+        Case 2 (2D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_2.mp4" type="video/mp4">
@@ -64,7 +64,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 2: 3D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #28a745; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 2 (3D Terrain)
+        Case 2 (3D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_2_3D.mp4" type="video/mp4">
@@ -77,7 +77,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 3: 2D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 3 (2D Flow)
+        Case 3 (2D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_3.mp4" type="video/mp4">
@@ -86,7 +86,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 3: 3D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #28a745; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 3 (3D Terrain)
+        Case 3 (3D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_3_3D.mp4" type="video/mp4">
@@ -99,7 +99,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 4: 2D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 4 (2D Flow)
+        Case 4 (2D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_4.mp4" type="video/mp4">
@@ -108,7 +108,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 4: 3D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #28a745; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 4 (3D Terrain)
+        Case 4 (3D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_4_3D.mp4" type="video/mp4">
@@ -121,7 +121,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 5: 2D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #0056b3; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 5 (2D Flow)
+        Case 5 (2D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_5.mp4" type="video/mp4">
@@ -130,7 +130,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     <!-- Case 5: 3D -->
     <div style="flex: 1 1 48%; min-width: 350px; position: relative;">
       <div style="position: absolute; bottom: 15px; left: 15px; background-color: #28a745; color: white; padding: 6px 12px; font-size: 0.9rem; font-weight: bold; z-index: 5; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
-        Case 5 (3D Terrain)
+        Case 5 (3D View)
       </div>
       <video width="100%" autoplay loop muted playsinline controls style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; border: 1px solid rgba(128,128,128, 0.2); height: auto; background-color: transparent;">
         <source src="assets/video/case_5_3D.mp4" type="video/mp4">

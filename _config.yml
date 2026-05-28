@@ -30,6 +30,7 @@ theme: minima
 plugins:
   - jekyll-feed
 header_pages:
+  - index_cn.markdown
   - 2_about.markdown
 
 minima:

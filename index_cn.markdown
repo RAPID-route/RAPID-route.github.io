@@ -189,7 +189,7 @@ MadDE-NDA 并不直接优化数百个航向指令，而是在与起点—终点�
 
 ### 连续域碰撞检测
 
-To improve safety over complex seabed terrain, the planner constructs a 3D Euclidean Signed Distance Field (ESDF) from GEBCO 海底地形. The ESDF provides signed distance queries: positive values indicate free space, whereas negative values indicate penetration into the seabed. Based on this representation, sphere tracing is used to check each descent/ascent segment of the reconstructed sawtooth trajectory.
+为提高复杂海底地形条件下的航行安全性，规划器基于 GEBCO 海底地形数据构建三维欧氏符号距离场（ESDF）。ESDF 可提供符号距离查询：正值表示自由空间，负值表示轨迹侵入海底区域。基于该表示方法，本文采用球面追踪方法对重构锯齿形轨迹中的每个下潜/上浮航段进行碰撞检测。
 
 与固定步长采样相比，sphere tracing 会根据当前位置到障碍物的距离自适应调整检测步长：在开阔水域可以采用较大步长快速前进，而在接近海底结构时会自动变得保守。这一机制为高频种群级碰撞检测提供了更好的安全性—效率平衡。
 
@@ -242,7 +242,7 @@ MadDE-NDA 是在原始 MadDE 框架基础上进一步开发的。其动机在于
 
 #### 仿真案例
 
-Five real-world planning cases are constructed from GEBCO 海底地形 and CMEMS current data in the northern South China Sea and adjacent Philippine Sea. The cases cover different mission lengths, dive depths, safety margins, and terrain-current conditions.
+本文基于南海北部及菲律宾海邻近海域的 GEBCO 海底地形数据和 CMEMS 洋流数据，构建了五个真实海域规划案例。这些案例覆盖了不同的任务距离、下潜深度、安全裕度以及地形—洋流条件。
 
 | 案例 | 下潜深度 | 安全裕度 | 起点 → 终点 | 洋流时间窗口 |
 |:---:|:---:|:---:|:---|:---|

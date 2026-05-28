@@ -205,13 +205,6 @@ MadDE-NDA is developed on top of the original MadDE framework. The motivation is
   </div>
 </div>
 
-<div class="figure-box">
-  <img src="assets/img/fig_madde_nda_algorithm.png" alt="MadDE-NDA optimizer with dual archives and stagnation-triggered niching">
-  <div class="figure-caption">
-    <strong>Recommended image:</strong> a compact algorithmic flowchart of MadDE-NDA, showing trial generation, dual-archive update, stagnation detection, niching selection, parameter-memory update, and source-probability adaptation.
-  </div>
-</div>
-
 ### GPU-Accelerated Population-Level Evaluation
 
 The most expensive part of the planner is fitness evaluation: every candidate route must be reconstructed, dynamically integrated, checked for reachability, and verified for collision safety. To make this tractable, the framework offloads the evaluation stage to the GPU. The CPU manages evolutionary operations and population updates, while the GPU performs batched RK4 integration and ESDF-based sphere tracing for many candidate trajectories in parallel.

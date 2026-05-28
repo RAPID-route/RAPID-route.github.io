@@ -50,21 +50,47 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
     margin-bottom: 8px;
   }
   .figure-box {
-    margin: 22px auto 34px auto;
+    margin: 20px auto 32px auto;
     text-align: center;
     width: 100%;
+    max-width: 820px;
   }
   .figure-box img {
+    display: block;
+    width: 100%;
+    height: auto;
     max-width: 100%;
     border-radius: 10px;
     box-shadow: 0 5px 16px rgba(0,0,0,0.16);
     border: 1px solid rgba(128,128,128,0.20);
   }
+  .figure-wide {
+    max-width: 960px;
+  }
+  .figure-medium {
+    max-width: 740px;
+  }
+  .figure-compact {
+    max-width: 660px;
+  }
+  .figure-bspline {
+    max-width: 640px;
+  }
   .figure-caption {
-    margin-top: 8px;
+    margin: 8px auto 0 auto;
+    max-width: 92%;
     color: #666;
-    font-size: 0.92rem;
-    line-height: 1.45;
+    font-size: 0.88rem;
+    line-height: 1.42;
+  }
+  @media (max-width: 768px) {
+    .figure-box,
+    .figure-wide,
+    .figure-medium,
+    .figure-compact,
+    .figure-bspline {
+      max-width: 100%;
+    }
   }
   .pipeline-step {
     font-weight: 600;
@@ -98,7 +124,7 @@ The central idea of this work is to make **long-range underwater glider planning
   </div>
 </div>
 
-<div class="figure-box">
+<div class="figure-box figure-wide">
   <img src="assets/img/fig_01_challenges.png" alt="Main challenges in DE-based underwater glider 4D path planning">
   <div class="figure-caption">
     <strong>Recommended image:</strong> main challenges of DE-based long-range underwater glider 4D path planning, including variable-length decision variables, spatiotemporal causal coupling, and missed collisions under sparse fixed-step checking.
@@ -143,7 +169,7 @@ MadDE-NDA does not directly optimize hundreds of heading commands. Instead, it r
 
 After optimization, the continuous B-spline curve is decoded into waypoints using chord-length sampling. The chord interval is chosen according to the horizontal distance traveled in one dive-climb cycle, which links the optimized geometric path to the glider's executable profile-level motion.
 
-<div class="figure-box">
+<div class="figure-box figure-bspline">
   <img src="assets/img/fig_05_bspline_encoding.png" alt="B-spline encoding and chord-length waypoint decoding">
   <div class="figure-caption">
     <strong>Recommended image:</strong> B-spline-based trajectory representation. Panel (a) should show fixed start/goal points and optimizable lateral control-point offsets; panel (b) should show chord-length waypoint decoding for dive-climb execution.
@@ -156,7 +182,7 @@ Because ocean currents are time-varying, the trajectory evaluation is sequential
 
 For each decoded path segment, the planner performs RK4-based forward integration under the local current field. At each integration step, the cross-current component is checked against the glider's horizontal velocity capability. If the glider cannot compensate the cross-current and maintain the desired direction, the segment is marked infeasible and penalized. This ensures that the final route is not only geometrically valid, but also physically executable under time-varying currents.
 
-<div class="figure-box">
+<div class="figure-box figure-compact">
   <img src="assets/img/fig_03_current_reachability.png" alt="Reachability analysis under ocean currents">
   <div class="figure-caption">
     <strong>Recommended image:</strong> geometric reachability analysis under ocean currents, including feasible, boundary-feasible, and infeasible cases depending on the cross-current magnitude.
@@ -169,7 +195,7 @@ To improve safety over complex seabed terrain, the planner constructs a 3D Eucli
 
 Compared with fixed-step sampling, sphere tracing adaptively adjusts the checking step according to the local distance to obstacles. It can move quickly in open water and become conservative near seabed structures. This mechanism provides a better safety-efficiency balance for high-frequency population-level collision checking.
 
-<div class="figure-box">
+<div class="figure-box figure-wide">
   <img src="assets/img/fig_06_sphere_tracing.png" alt="ESDF sphere tracing versus fixed-step collision checking">
   <div class="figure-caption">
     <strong>Recommended image:</strong> comparison between ESDF-based sphere tracing and fixed-step sampling. The figure should emphasize that sparse uniform checks may skip collisions, whereas sphere tracing adapts its step size based on signed distance.
@@ -205,7 +231,7 @@ The most expensive part of the planner is fitness evaluation: every candidate ro
 
 This design is especially suitable for evolutionary planning because each candidate solution can be evaluated independently at the population level, even though the profile sequence inside each candidate remains temporally coupled. In practice, the GPU backend substantially reduces the wall-clock cost of repeated fitness evaluations and makes long-range 4D underwater glider planning practical.
 
-<div class="figure-box">
+<div class="figure-box figure-wide">
   <img src="assets/img/fig_framework_pipeline.png" alt="GPU-accelerated parallel evaluation pipeline">
   <div class="figure-caption">
     <strong>Recommended image:</strong> CPU-GPU division of labor. The CPU runs the DE loop and transfers decoded trajectory descriptors, while the GPU returns travel time, feasibility flags, and collision penalties after parallel evaluation.
@@ -345,7 +371,7 @@ Five real-world planning cases are constructed from GEBCO bathymetry and CMEMS c
 | 4 | 1000 m | 25 m | `[114.70, 16.65]` → `[110.80, 17.50]` | 2025-11-21 to 2025-12-11 |
 | 5 | 550 m | 25 m | `[110.20, 14.10]` → `[110.80, 17.20]` | 2025-11-21 to 2025-12-11 |
 
-<div class="figure-box">
+<div class="figure-box figure-wide">
   <img src="assets/img/fig_08_simulation_cases.png" alt="Geographical distribution of the five simulation cases">
   <div class="figure-caption">
     <strong>Recommended image:</strong> geographical overview of the five planning regions, with square markers for starts and star markers for goals.
@@ -371,14 +397,14 @@ The comparison reports four groups of metrics:
 * **Time-optimal benefit over MadDE:** A supplementary paired Wilcoxon signed-rank test on travel time gives `p = 7.58 × 10^-9`. MadDE-NDA achieves shorter travel time than MadDE in `105 / 155` matched blocks, supporting the advantage of the proposed niching dual-archive design on the core time-optimal objective.
 * **Stable route quality:** In representative visualizations, MadDE-NDA tends to generate smoother and less tortuous routes while maintaining clear terrain clearance.
 
-<div class="figure-box">
+<div class="figure-box figure-wide">
   <img src="assets/img/fig_09_average_fitness.png" alt="Average fitness comparison over the five cases">
   <div class="figure-caption">
     <strong>Recommended image:</strong> average fitness values of different algorithms over the five simulation cases.
   </div>
 </div>
 
-<div class="figure-box">
+<div class="figure-box figure-medium">
   <img src="assets/img/fig_11_cd_diagram.png" alt="Critical-difference diagram of algorithm ranks">
   <div class="figure-caption">
     <strong>Recommended image:</strong> critical-difference diagram showing the average rank of each DE variant over 155 matched blocks.
@@ -389,7 +415,7 @@ The comparison reports four groups of metrics:
 
 The 3D trajectory results show that the optimized routes are not merely abstract 2D curves. They are reconstructed into repeated dive-climb profiles over real bathymetric surfaces. Across the five cases, the trajectories remain collision-free and keep clear separation from high-relief seabed structures, demonstrating that the framework can integrate trajectory smoothness, current-aware reachability, and terrain safety into a unified planning result.
 
-<div class="figure-box">
+<div class="figure-box figure-wide">
   <img src="assets/img/fig_12_3d_trajectories.png" alt="3D MadDE-NDA trajectories over GEBCO seabed terrains">
   <div class="figure-caption">
     <strong>Recommended image:</strong> 3D visualization of the representative median-fitness MadDE-NDA trajectories over the corresponding GEBCO seabed terrains.
@@ -400,14 +426,14 @@ The 3D trajectory results show that the optimized routes are not merely abstract
 
 Two efficiency studies are included. First, the GPU backend is compared with a CPU-only backend for batch fitness evaluation. The steady-state GPU speedup ranges from approximately **4.7× to 18.65×**, confirming that GPU acceleration is highly beneficial for repeated population-level evaluation. Second, the ESDF sphere-tracing checker is compared with dense and sparse fixed-step sampling. The results demonstrate that sphere tracing provides an efficient adaptive checking strategy while avoiding the missed-collision risk of sparse sampling.
 
-<div class="figure-box">
+<div class="figure-box figure-medium">
   <img src="assets/img/fig_13_gpu_speedup.png" alt="GPU versus CPU backend benchmark results">
   <div class="figure-caption">
     <strong>Recommended image:</strong> GPU-versus-CPU benchmark showing mean batch-evaluation time and speedup across the five cases.
   </div>
 </div>
 
-<div class="figure-box">
+<div class="figure-box figure-wide">
   <img src="assets/img/fig_14_collision_checking_benchmark.png" alt="Collision checking benchmark of dense sampling, sparse sampling, and sphere tracing">
   <div class="figure-caption">
     <strong>Recommended image:</strong> comparison of dense fixed-step sampling, sparse fixed-step sampling, and ESDF-based sphere tracing in terms of checking time and ESDF query count.
@@ -438,3 +464,4 @@ If you find our work helpful, please consider citing it:
       year={2026}
 }
 ```
+

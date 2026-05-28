@@ -127,7 +127,7 @@ The central idea of this work is to make **long-range underwater glider planning
 <div class="figure-box figure-wide">
   <img src="assets/img/fig_01_challenges.png" alt="Main challenges in DE-based underwater glider 4D path planning">
   <div class="figure-caption">
-    <strong>Recommended image:</strong> main challenges of DE-based long-range underwater glider 4D path planning, including variable-length decision variables, spatiotemporal causal coupling, and missed collisions under sparse fixed-step checking.
+     Main challenges of DE-based long-range underwater glider 4D path planning, including variable-length decision variables, spatiotemporal causal coupling, and missed collisions under sparse fixed-step checking.
   </div>
 </div>
 
@@ -172,7 +172,7 @@ After optimization, the continuous B-spline curve is decoded into waypoints usin
 <div class="figure-box figure-bspline">
   <img src="assets/img/fig_05_bspline_encoding.png" alt="B-spline encoding and chord-length waypoint decoding">
   <div class="figure-caption">
-    <strong>Recommended image:</strong> B-spline-based trajectory representation. Panel (a) should show fixed start/goal points and optimizable lateral control-point offsets; panel (b) should show chord-length waypoint decoding for dive-climb execution.
+    B-spline-based trajectory representation. Panel (a) should show fixed start/goal points and optimizable lateral control-point offsets; panel (b) should show chord-length waypoint decoding for dive-climb execution.
   </div>
 </div>
 
@@ -185,7 +185,7 @@ For each decoded path segment, the planner performs RK4-based forward integratio
 <div class="figure-box figure-compact">
   <img src="assets/img/fig_03_current_reachability.png" alt="Reachability analysis under ocean currents">
   <div class="figure-caption">
-    <strong>Recommended image:</strong> geometric reachability analysis under ocean currents, including feasible, boundary-feasible, and infeasible cases depending on the cross-current magnitude.
+    Geometric reachability analysis under ocean currents, including feasible, boundary-feasible, and infeasible cases depending on the cross-current magnitude.
   </div>
 </div>
 
@@ -198,7 +198,7 @@ Compared with fixed-step sampling, sphere tracing adaptively adjusts the checkin
 <div class="figure-box figure-wide">
   <img src="assets/img/fig_06_sphere_tracing.png" alt="ESDF sphere tracing versus fixed-step collision checking">
   <div class="figure-caption">
-    <strong>Recommended image:</strong> comparison between ESDF-based sphere tracing and fixed-step sampling. The figure should emphasize that sparse uniform checks may skip collisions, whereas sphere tracing adapts its step size based on signed distance.
+    Comparison between ESDF-based sphere tracing and fixed-step sampling. The figure should emphasize that sparse uniform checks may skip collisions, whereas sphere tracing adapts its step size based on signed distance.
   </div>
 </div>
 
@@ -234,7 +234,74 @@ This design is especially suitable for evolutionary planning because each candid
 <div class="figure-box figure-wide">
   <img src="assets/img/fig_framework_pipeline.png" alt="GPU-accelerated parallel evaluation pipeline">
   <div class="figure-caption">
-    <strong>Recommended image:</strong> CPU-GPU division of labor. The CPU runs the DE loop and transfers decoded trajectory descriptors, while the GPU returns travel time, feasibility flags, and collision penalties after parallel evaluation.
+    CPU-GPU division of labor. The CPU runs the DE loop and transfers decoded trajectory descriptors, while the GPU returns travel time, feasibility flags, and collision penalties after parallel evaluation.
+  </div>
+</div>
+
+### Experimental Evidence
+
+The experiments are designed to answer four practical questions: **Can the planner find feasible routes? Does MadDE-NDA improve the MadDE backbone? Are the generated routes physically plausible? Is the GPU/ESDF implementation efficient enough for repeated population evaluation?**
+
+#### Simulation cases
+
+Five real-world planning cases are constructed from GEBCO bathymetry and CMEMS current data in the northern South China Sea and adjacent Philippine Sea. The cases cover different mission lengths, dive depths, safety margins, and terrain-current conditions.
+
+| Case | Dive depth | Safety margin | Start → Goal | Current window |
+|:---:|:---:|:---:|:---|:---|
+| 1 | 1000 m | 50 m | `[120.90, 20.60]` → `[121.60, 21.40]` | 2025-11-21 to 2025-12-11 |
+| 2 | 550 m | 15 m | `[111.65, 16.10]` → `[112.40, 16.70]` | 2025-11-21 to 2025-12-11 |
+| 3 | 1500 m | 50 m | `[122.38, 22.00]` → `[128.30, 24.40]` | 2025-11-11 to 2025-12-11 |
+| 4 | 1000 m | 25 m | `[114.70, 16.65]` → `[110.80, 17.50]` | 2025-11-21 to 2025-12-11 |
+| 5 | 550 m | 25 m | `[110.20, 14.10]` → `[110.80, 17.20]` | 2025-11-21 to 2025-12-11 |
+
+<div class="figure-box figure-wide">
+  <img src="assets/img/fig_08_simulation_cases.png" alt="Geographical distribution of the five simulation cases">
+  <div class="figure-caption">
+   Geographical overview of the five planning regions, with square markers for starts and star markers for goals.
+  </div>
+</div>
+
+#### Compared algorithms and metrics
+
+MadDE-NDA is compared with six representative DE variants: **JADE**, **L-SHADE**, **SaDE**, **IMODE**, **MadDE**, and **NL-SHADE-LBC**. All methods use the same B-spline decision representation, search bounds, and GPU-based fitness evaluation backend. Each algorithm is independently run **31 times** on each case with a common budget of **25,000 fitness evaluations**.
+
+The comparison reports four groups of metrics:
+
+* **Success rate:** whether a feasible route reaches the goal region under the prescribed constraints.
+* **Fitness:** the composite optimization objective, including travel time and constraint penalties.
+* **Travel time:** the mission-oriented physical objective measured in hours.
+* **Runtime:** the wall-clock cost of optimization under the same evaluation backend.
+
+#### Main quantitative findings
+
+* **Robust feasibility:** MadDE-NDA obtains a success rate of `1.0` in all five cases, including the difficult Case 5 where several competing methods show reduced success rates.
+* **Overall fitness advantage:** MadDE-NDA achieves the best average fitness in four of the five cases. The only exception is Case 3, where the proposed NDA mechanism still substantially improves the original MadDE backbone.
+* **Statistical ranking:** Over all `5 × 31 = 155` matched runs, MadDE-NDA obtains the best Friedman average rank (`2.9710`). Under the Bonferroni-Dunn post-hoc test, it significantly outperforms JADE, L-SHADE, SaDE, IMODE, and NL-SHADE-LBC.
+* **Time-optimal benefit over MadDE:** A supplementary paired Wilcoxon signed-rank test on travel time gives `p = 7.58 × 10^-9`. MadDE-NDA achieves shorter travel time than MadDE in `105 / 155` matched blocks, supporting the advantage of the proposed niching dual-archive design on the core time-optimal objective.
+* **Stable route quality:** In representative visualizations, MadDE-NDA tends to generate smoother and less tortuous routes while maintaining clear terrain clearance.
+
+<div class="figure-box figure-wide">
+  <img src="assets/img/fig_09_average_fitness.png" alt="Average fitness comparison over the five cases">
+  <div class="figure-caption">
+    Average fitness values of different algorithms over the five simulation cases.
+  </div>
+</div>
+
+<div class="figure-box figure-medium">
+  <img src="assets/img/fig_11_cd_diagram.png" alt="Critical-difference diagram of algorithm ranks">
+  <div class="figure-caption">
+    Critical-difference diagram showing the average rank of each DE variant over 155 matched blocks.
+  </div>
+</div>
+
+#### Physical trajectory visualization
+
+The 3D trajectory results show that the optimized routes are not merely abstract 2D curves. They are reconstructed into repeated dive-climb profiles over real bathymetric surfaces. Across the five cases, the trajectories remain collision-free and keep clear separation from high-relief seabed structures, demonstrating that the framework can integrate trajectory smoothness, current-aware reachability, and terrain safety into a unified planning result.
+
+<div class="figure-box figure-wide">
+  <img src="assets/img/fig_12_3d_trajectories.png" alt="3D MadDE-NDA trajectories over GEBCO seabed terrains">
+  <div class="figure-caption">
+    3D visualization of the representative median-fitness MadDE-NDA trajectories over the corresponding GEBCO seabed terrains.
   </div>
 </div>
 
@@ -354,74 +421,6 @@ This design is especially suitable for evolutionary planning because each candid
 
 </div>
 
-
-### Experimental Evidence
-
-The experiments are designed to answer four practical questions: **Can the planner find feasible routes? Does MadDE-NDA improve the MadDE backbone? Are the generated routes physically plausible? Is the GPU/ESDF implementation efficient enough for repeated population evaluation?**
-
-#### Simulation cases
-
-Five real-world planning cases are constructed from GEBCO bathymetry and CMEMS current data in the northern South China Sea and adjacent Philippine Sea. The cases cover different mission lengths, dive depths, safety margins, and terrain-current conditions.
-
-| Case | Dive depth | Safety margin | Start → Goal | Current window |
-|:---:|:---:|:---:|:---|:---|
-| 1 | 1000 m | 50 m | `[120.90, 20.60]` → `[121.60, 21.40]` | 2025-11-21 to 2025-12-11 |
-| 2 | 550 m | 15 m | `[111.65, 16.10]` → `[112.40, 16.70]` | 2025-11-21 to 2025-12-11 |
-| 3 | 1500 m | 50 m | `[122.38, 22.00]` → `[128.30, 24.40]` | 2025-11-11 to 2025-12-11 |
-| 4 | 1000 m | 25 m | `[114.70, 16.65]` → `[110.80, 17.50]` | 2025-11-21 to 2025-12-11 |
-| 5 | 550 m | 25 m | `[110.20, 14.10]` → `[110.80, 17.20]` | 2025-11-21 to 2025-12-11 |
-
-<div class="figure-box figure-wide">
-  <img src="assets/img/fig_08_simulation_cases.png" alt="Geographical distribution of the five simulation cases">
-  <div class="figure-caption">
-    <strong>Recommended image:</strong> geographical overview of the five planning regions, with square markers for starts and star markers for goals.
-  </div>
-</div>
-
-#### Compared algorithms and metrics
-
-MadDE-NDA is compared with six representative DE variants: **JADE**, **L-SHADE**, **SaDE**, **IMODE**, **MadDE**, and **NL-SHADE-LBC**. All methods use the same B-spline decision representation, search bounds, and GPU-based fitness evaluation backend. Each algorithm is independently run **31 times** on each case with a common budget of **25,000 fitness evaluations**.
-
-The comparison reports four groups of metrics:
-
-* **Success rate:** whether a feasible route reaches the goal region under the prescribed constraints.
-* **Fitness:** the composite optimization objective, including travel time and constraint penalties.
-* **Travel time:** the mission-oriented physical objective measured in hours.
-* **Runtime:** the wall-clock cost of optimization under the same evaluation backend.
-
-#### Main quantitative findings
-
-* **Robust feasibility:** MadDE-NDA obtains a success rate of `1.0` in all five cases, including the difficult Case 5 where several competing methods show reduced success rates.
-* **Overall fitness advantage:** MadDE-NDA achieves the best average fitness in four of the five cases. The only exception is Case 3, where the proposed NDA mechanism still substantially improves the original MadDE backbone.
-* **Statistical ranking:** Over all `5 × 31 = 155` matched runs, MadDE-NDA obtains the best Friedman average rank (`2.9710`). Under the Bonferroni-Dunn post-hoc test, it significantly outperforms JADE, L-SHADE, SaDE, IMODE, and NL-SHADE-LBC.
-* **Time-optimal benefit over MadDE:** A supplementary paired Wilcoxon signed-rank test on travel time gives `p = 7.58 × 10^-9`. MadDE-NDA achieves shorter travel time than MadDE in `105 / 155` matched blocks, supporting the advantage of the proposed niching dual-archive design on the core time-optimal objective.
-* **Stable route quality:** In representative visualizations, MadDE-NDA tends to generate smoother and less tortuous routes while maintaining clear terrain clearance.
-
-<div class="figure-box figure-wide">
-  <img src="assets/img/fig_09_average_fitness.png" alt="Average fitness comparison over the five cases">
-  <div class="figure-caption">
-    <strong>Recommended image:</strong> average fitness values of different algorithms over the five simulation cases.
-  </div>
-</div>
-
-<div class="figure-box figure-medium">
-  <img src="assets/img/fig_11_cd_diagram.png" alt="Critical-difference diagram of algorithm ranks">
-  <div class="figure-caption">
-    <strong>Recommended image:</strong> critical-difference diagram showing the average rank of each DE variant over 155 matched blocks.
-  </div>
-</div>
-
-#### Physical trajectory visualization
-
-The 3D trajectory results show that the optimized routes are not merely abstract 2D curves. They are reconstructed into repeated dive-climb profiles over real bathymetric surfaces. Across the five cases, the trajectories remain collision-free and keep clear separation from high-relief seabed structures, demonstrating that the framework can integrate trajectory smoothness, current-aware reachability, and terrain safety into a unified planning result.
-
-<div class="figure-box figure-wide">
-  <img src="assets/img/fig_12_3d_trajectories.png" alt="3D MadDE-NDA trajectories over GEBCO seabed terrains">
-  <div class="figure-caption">
-    <strong>Recommended image:</strong> 3D visualization of the representative median-fitness MadDE-NDA trajectories over the corresponding GEBCO seabed terrains.
-  </div>
-</div>
-
 #### Efficiency analysis
 
 Two efficiency studies are included. First, the GPU backend is compared with a CPU-only backend for batch fitness evaluation. The steady-state GPU speedup ranges from approximately **4.7× to 18.65×**, confirming that GPU acceleration is highly beneficial for repeated population-level evaluation. Second, the ESDF sphere-tracing checker is compared with dense and sparse fixed-step sampling. The results demonstrate that sphere tracing provides an efficient adaptive checking strategy while avoiding the missed-collision risk of sparse sampling.
@@ -429,14 +428,14 @@ Two efficiency studies are included. First, the GPU backend is compared with a C
 <div class="figure-box figure-medium">
   <img src="assets/img/fig_13_gpu_speedup.png" alt="GPU versus CPU backend benchmark results">
   <div class="figure-caption">
-    <strong>Recommended image:</strong> GPU-versus-CPU benchmark showing mean batch-evaluation time and speedup across the five cases.
+    GPU-versus-CPU benchmark showing mean batch-evaluation time and speedup across the five cases.
   </div>
 </div>
 
 <div class="figure-box figure-wide">
   <img src="assets/img/fig_14_collision_checking_benchmark.png" alt="Collision checking benchmark of dense sampling, sparse sampling, and sphere tracing">
   <div class="figure-caption">
-    <strong>Recommended image:</strong> comparison of dense fixed-step sampling, sparse fixed-step sampling, and ESDF-based sphere tracing in terms of checking time and ESDF query count.
+    Comparison of dense fixed-step sampling, sparse fixed-step sampling, and ESDF-based sphere tracing in terms of checking time and ESDF query count.
   </div>
 </div>
 

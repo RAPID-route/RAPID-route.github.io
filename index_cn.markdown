@@ -1,8 +1,7 @@
 ---
-# 可在此文件中添加自定义内容和 Front Matter。
-# 若需修改布局，请参考 Jekyll 主题覆盖文档。
-
-layout: default  
+layout: page
+title: 中文
+permalink: /index_cn.markdown/
 ---
 
 <style>

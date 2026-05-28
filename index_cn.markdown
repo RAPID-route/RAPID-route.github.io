@@ -1,7 +1,6 @@
 ---
 layout: page
 title: 中文
-permalink: /index_cn/
 ---
 
 <style>

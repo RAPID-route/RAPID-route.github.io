@@ -101,7 +101,7 @@ This project presents a state-of-the-art GPU-accelerated 4D path planning framew
   }
 </style>
 
-### Research Storyline
+### Research Motivation
 
 The central idea of this work is to make **long-range underwater glider planning** simultaneously **compact**, **physically executable**, **collision-safe**, and **computationally tractable**. Unlike short-range geometric path planning, a practical underwater glider mission is a 4D planning problem: the vehicle moves in 3D space while the ocean current changes over time. Therefore, the final route must not only be short or smooth, but also reachable under current disturbances and safe with respect to real seabed terrain.
 

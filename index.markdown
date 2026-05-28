@@ -379,13 +379,6 @@ The comparison reports four groups of metrics:
 </div>
 
 <div class="figure-box">
-  <img src="assets/img/fig_10_2d_trajectories.png" alt="Representative 2D trajectories of different algorithms">
-  <div class="figure-caption">
-    <strong>Recommended image:</strong> representative median-fitness 2D trajectories under different time slices for all compared algorithms.
-  </div>
-</div>
-
-<div class="figure-box">
   <img src="assets/img/fig_11_cd_diagram.png" alt="Critical-difference diagram of algorithm ranks">
   <div class="figure-caption">
     <strong>Recommended image:</strong> critical-difference diagram showing the average rank of each DE variant over 155 matched blocks.
@@ -428,27 +421,6 @@ The videos above provide dynamic views of the final planned routes. The **2D vid
 1. **Current-aware routing:** the route is shaped by the time-varying ocean environment rather than simply following the shortest geometric line.
 2. **Terrain-aware safety:** the 3D trajectory avoids bathymetric obstacles and maintains safety margins.
 3. **Executable glider motion:** the planned path can be reconstructed into repeated dive-climb profiles, matching the operational pattern of underwater gliders.
-
-### Suggested Image Assets
-
-To make this GitHub Pages introduction complete, the following static images are recommended. Upload them to `assets/img/` using the filenames below, and the image tags already inserted in this Markdown file will render automatically.
-
-| Filename | Purpose |
-|:---|:---|
-| `fig_01_challenges.png` | Motivation: variable-length encoding, spatiotemporal causal chain, and fixed-step collision-checking limitations. |
-| `fig_framework_pipeline.png` | Overall framework from data preparation to MadDE-NDA optimization and final route generation. |
-| `fig_05_bspline_encoding.png` | B-spline control-point encoding and chord-length waypoint decoding. |
-| `fig_03_current_reachability.png` | Reachability analysis under ocean currents. |
-| `fig_06_sphere_tracing.png` | ESDF sphere tracing versus fixed-step sampling. |
-| `fig_madde_nda_algorithm.png` | Flowchart of MadDE-NDA, including dual archives, niching selection, and adaptive source sampling. |
-| `fig_07_gpu_pipeline.png` | GPU-accelerated population-level evaluation pipeline. |
-| `fig_08_simulation_cases.png` | Map of the five simulation cases. |
-| `fig_09_average_fitness.png` | Average fitness comparison over five cases. |
-| `fig_10_2d_trajectories.png` | Representative 2D trajectories of different algorithms. |
-| `fig_11_cd_diagram.png` | Critical-difference diagram of the algorithm ranks. |
-| `fig_12_3d_trajectories.png` | 3D MadDE-NDA trajectories over seabed terrain. |
-| `fig_13_gpu_speedup.png` | GPU-versus-CPU speedup benchmark. |
-| `fig_14_collision_checking_benchmark.png` | Collision-checking benchmark for sphere tracing and fixed-step sampling. |
 
 ### Status
 

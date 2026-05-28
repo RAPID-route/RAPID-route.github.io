@@ -123,13 +123,6 @@ The framework can be understood as a closed-loop optimization-and-verification p
 
 In each generation, candidate decision vectors define B-spline control-point offsets. These offsets are decoded into horizontal waypoints and reconstructed into 3D dive-climb profiles. The GPU backend then evaluates travel time, reachability, and collision penalties for the whole population. The resulting fitness values guide MadDE-NDA to update the population, archives, mutation probabilities, and archive-source sampling probabilities.
 
-<div class="figure-box">
-  <img src="assets/img/fig_framework_pipeline.png" alt="Overall pipeline of the MadDE-NDA underwater glider planner">
-  <div class="figure-caption">
-    <strong>Recommended image:</strong> an overall framework diagram showing data preparation, trajectory encoding, GPU-based feasibility/safety evaluation, and MadDE-NDA optimization. This can be redrawn from the paper workflow or exported from the implementation diagram.
-  </div>
-</div>
-
 ### Problem Definition
 
 Given a start point, a goal point, a prescribed dive depth, a fixed pitch angle, real seabed topography, and time-varying ocean currents, the planner searches for a route that minimizes total travel time while satisfying three types of constraints:
@@ -212,7 +205,7 @@ The most expensive part of the planner is fitness evaluation: every candidate ro
 This design is especially suitable for evolutionary planning because each candidate solution can be evaluated independently at the population level, even though the profile sequence inside each candidate remains temporally coupled. In practice, the GPU backend substantially reduces the wall-clock cost of repeated fitness evaluations and makes long-range 4D underwater glider planning practical.
 
 <div class="figure-box">
-  <img src="assets/img/fig_07_gpu_pipeline.png" alt="GPU-accelerated parallel evaluation pipeline">
+  <img src="assets/img/fig_framework_pipeline.png" alt="GPU-accelerated parallel evaluation pipeline">
   <div class="figure-caption">
     <strong>Recommended image:</strong> CPU-GPU division of labor. The CPU runs the DE loop and transfers decoded trajectory descriptors, while the GPU returns travel time, feasibility flags, and collision penalties after parallel evaluation.
   </div>

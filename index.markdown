@@ -456,10 +456,10 @@ This work is currently under review at **Ocean Engineering**. Data and Code will
 If you find our work helpful, please consider citing it:
 
 ```Latex
-@article{li2024collision,
-      title={Collision-Free Time-Optimal Planning of Underwater Gliders in Time-Varying Currents via Adaptive Niching Dual-Archive Differential Evolution}, 
+@article{li2026collision,
+      title={Collision-Free Path Planning for Underwater Gliders in Time-Varying Currents via Dual-Archive Niching Differential Evolution}, 
       author={Li, Zezhong and Juan, Rongshun and Li, Yang and Liu, Shoufu and Wang, Tianshu and Shi, Shuaikun and Du, Leihao and Feng, Wanjun and Gao, Zhongke},
-      journal={Under Review at Ocean Engineering},
+      journal={Ocean Engineering},
       year={2026}
 }
 ```

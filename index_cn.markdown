@@ -12,6 +12,7 @@ title: 中文
 </style>
 
 
+
 ## **MadDE-NDA：** 面向时变洋流环境的水下滑翔机无碰撞时间最优路径规划——自适应**小生境**双**档案**差分进化方法
 
 本项目提出了一种面向复杂时变海洋环境中**自主水下滑翔机（Autonomous Underwater Gliders, AUGs）**的 GPU 加速 4D 路径规划框架。针对长航程任务中存在的维数灾难和时空因果链问题，本文采用固定维度的 **B-spline 轨迹编码**，并设计了一种新的进化优化器 **MadDE-NDA**（Niching Dual-Archive Differential Evolution）。借助大规模 **GPU 并行计算**，该框架能够在较短时间内严格评估轨迹的动力学可达性和连续空间避碰安全性。

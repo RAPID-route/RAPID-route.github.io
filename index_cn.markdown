@@ -454,10 +454,10 @@ MadDE-NDA 是在原始 MadDE 框架基础上进一步开发的。其动机在于
 如果本工作对您有所帮助，欢迎引用：
 
 ```Latex
-@article{li2024collision,
-      title={Collision-Free Time-Optimal Planning of Underwater Gliders in Time-Varying Currents via Adaptive Niching Dual-Archive Differential Evolution}, 
+@article{li2026collision,
+      title={Collision-Free Path Planning for Underwater Gliders in Time-Varying Currents via Dual-Archive Niching Differential Evolution}, 
       author={Li, Zezhong and Juan, Rongshun and Li, Yang and Liu, Shoufu and Wang, Tianshu and Shi, Shuaikun and Du, Leihao and Feng, Wanjun and Gao, Zhongke},
-      journal={Under Review at Ocean Engineering},
+      journal={Ocean Engineering},
       year={2026}
 }
 ```

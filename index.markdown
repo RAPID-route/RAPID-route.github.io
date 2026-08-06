@@ -456,11 +456,15 @@ This work is currently under review at **Ocean Engineering**. Data and Code will
 If you find our work helpful, please consider citing it:
 
 ```Latex
-@article{li2026collision,
-      title={Collision-Free Path Planning for Underwater Gliders in Time-Varying Currents via Dual-Archive Niching Differential Evolution}, 
-      author={Li, Zezhong and Juan, Rongshun and Li, Yang and Liu, Shoufu and Wang, Tianshu and Shi, Shuaikun and Du, Leihao and Feng, Wanjun and Gao, Zhongke},
-      journal={Ocean Engineering},
-      year={2026}
+@article{LI2026127215,
+title = {Collision-free path planning for underwater gliders in time-varying currents via dual-archive niching differential evolution},
+journal = {Ocean Engineering},
+volume = {365},
+pages = {127215},
+year = {2026},
+doi = {https://doi.org/10.1016/j.oceaneng.2026.127215},
+url = {https://www.sciencedirect.com/science/article/pii/S0029801826030490},
+author = {Zezhong Li and Rongshun Juan and Yang Li and Shoufu Liu and Tianshu Wang and Shuaikun Shi and Leihao Du and Wanjun Feng and Zhongke Gao},
 }
 ```
 
